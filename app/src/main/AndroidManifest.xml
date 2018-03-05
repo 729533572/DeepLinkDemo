@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.main.deeplinkdemo">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".UserActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="deeplinkdemo.com"
+                    android:path="/user"
+                    android:scheme="deeplinkdemo" />
+
+            </intent-filter>
+            <!--
+            eg:
+            String url="deeplinkdemo://deeplinkdemo.com/user?uid=123";
+            Intent intent=new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
+            -->
+        </activity>
+
+        <activity android:name=".TimelineActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="deeplinkdemo.com"
+                    android:path="/timeline/detail"
+                    android:scheme="deeplinkdemo" />
+
+            </intent-filter>
+
+            <!--
+            eg:
+            String url="deeplinkdemo://deeplinkdemo.com/timeline/detail?uid=123";
+            Intent intent=new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
+            -->
+
+        </activity>
+    </application>
+
+</manifest>
